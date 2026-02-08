@@ -1,0 +1,34 @@
+package com.Ecommerce.GenericUtility;
+
+import java.io.File;
+import java.io.IOException;
+
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.io.FileHandler;
+import org.testng.ITestListener;
+import org.testng.ITestResult;
+
+import com.google.common.io.Files;
+
+public class CustomListener implements ITestListener {
+
+	@Override
+	public void onTestFailure(ITestResult result) {
+
+		String name = result.getMethod().getMethodName();
+		String time = WebDriverUtility.getCurrentDateTime();
+		String newName = name + time;
+		TakesScreenshot t = (TakesScreenshot) BaseTest.sdriver;
+		File src = t.getScreenshotAs(OutputType.FILE);
+		File dest = new File("./src/test/resources/FailedScreenshot/" + newName + ".png");
+		try {
+			FileHandler.copy(src, dest);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}

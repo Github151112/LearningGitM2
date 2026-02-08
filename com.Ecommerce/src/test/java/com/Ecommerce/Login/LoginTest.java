@@ -1,0 +1,39 @@
+package com.Ecommerce.Login;
+
+import java.io.IOException;
+import org.apache.poi.EncryptedDocumentException;
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
+
+import com.Ecommerce.GenericUtility.BaseTest;
+import com.Ecommerce.GenericUtility.CustomListener;
+import com.Ecommerce.ObjectRepository.LandingPage;
+import com.Ecommerce.ObjectRepository.LoginPage;
+
+@Listeners(CustomListener.class)
+public class LoginTest extends BaseTest {
+
+	@DataProvider(name = "loginData")
+	public Object[][] getLoginData() throws EncryptedDocumentException, IOException {
+		return e.readExcel(EXCELPATH, LOGINSHEET);
+	}
+
+	@Test(dataProvider = "loginData", groups = {"FT","RT"})
+	public void automateLogin(String email, String password) throws InterruptedException {
+
+		LandingPage lp = new LandingPage(driver);
+		lp.getLoginLink().click();
+		// Assert.assertEquals(driver.getTitle(), "Demo Web Shop. Login");
+		SoftAssert s = new SoftAssert();
+		s.assertEquals(driver.getTitle(), "Demo Web Shop. Login");
+		LoginPage ll = new LoginPage(driver);
+		ll.automateLoginFunctionality(email, password);
+		Assert.assertEquals(ll.getLogoutLink().isDisplayed(), true);
+		s.assertAll();
+
+	}
+
+}
