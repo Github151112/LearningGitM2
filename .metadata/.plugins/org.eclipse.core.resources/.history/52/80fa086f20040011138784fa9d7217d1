@@ -1,0 +1,27 @@
+package com.Ecommercecom.Register;
+
+import java.net.URL;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.testng.annotations.Test;
+
+public class ChromeGridTest {
+
+    @Test
+    public void openGoogleOnChrome() throws Exception {
+
+        ChromeOptions options = new ChromeOptions();
+
+        WebDriver driver =
+                new RemoteWebDriver(
+                        new URL("http://10.68.198.47:4444/wd/hub"),
+                        options);
+
+        driver.get("https://www.google.com");
+        System.out.println(driver.getTitle());
+
+        driver.quit();
+    }
+}

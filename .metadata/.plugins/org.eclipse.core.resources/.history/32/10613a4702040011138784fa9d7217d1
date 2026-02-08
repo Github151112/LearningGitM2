@@ -1,0 +1,17 @@
+package com.Ecommercecom.Login;
+
+import org.testng.Reporter;
+import org.testng.annotations.Test;
+
+import com.Ecommerce.GenericUtility.BaseTest;
+
+public class LoginTest extends BaseTest {
+
+	@Test
+	public void loginFunctionality() {
+
+		Reporter.log("login sucess");
+		
+	}
+
+}

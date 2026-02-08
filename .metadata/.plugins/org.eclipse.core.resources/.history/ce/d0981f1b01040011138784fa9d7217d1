@@ -1,0 +1,11 @@
+package com.Ecommerce.GenericUtility;
+
+import org.openqa.selenium.WebDriver;
+
+public class WebDriverUtility {
+
+	public void maximizeWindow(WebDriver driver) {
+		driver.manage().window().maximize();
+	}
+
+}

@@ -1,0 +1,23 @@
+package com.Ecommercecom.Register;
+
+import org.testng.annotations.Test;
+
+import com.Ecommerce.GenericUtility.BaseTest;
+import com.Ecommerce.ObjectRepository.LandingPage;
+import com.Ecommerce.ObjectRepository.RegisterPage;
+
+public class RegisterTest extends BaseTest {
+
+	@Test
+	public void automateRegisterFunctionality() {
+
+		LandingPage lp = new LandingPage(driver);
+		lp.getRegisterLink().click();
+		RegisterPage rp = new RegisterPage(driver);
+		rp.automateRegisterFunctionality(PROPPATH, PROPPATH, PROPPATH, PROPPATH);
+		
+		
+
+	}
+
+}

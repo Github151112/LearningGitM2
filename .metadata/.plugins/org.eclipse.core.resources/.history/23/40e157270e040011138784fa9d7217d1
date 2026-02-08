@@ -1,0 +1,34 @@
+package com.Ecommercecom.Register;
+
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import com.Ecommerce.GenericUtility.BaseTest;
+import com.Ecommerce.ObjectRepository.LandingPage;
+import com.Ecommerce.ObjectRepository.RegisterPage;
+
+public class RegisterTest extends BaseTest {
+	
+	@DataProvider(name = "RegisterData")
+	public Object[][] getRegisterData() throws EncryptedDocumentException, IOException
+	{
+		return e.readExcel(EXCELPATH,REGSHEET);
+	}
+	
+
+	@Test(dataProvider = "RegisterData")
+	public void automateRegisterFunctionality() throws InterruptedException {
+
+		LandingPage lp = new LandingPage(driver);
+		lp.getRegisterLink().click();
+		RegisterPage rp = new RegisterPage(driver);
+		rp.automateRegisterFunctionality("fgn","zdrzsdt","sgbdt@gmail.com","efvdfrvrfg");
+		Thread.sleep(5000);
+		
+
+	}
+
+}

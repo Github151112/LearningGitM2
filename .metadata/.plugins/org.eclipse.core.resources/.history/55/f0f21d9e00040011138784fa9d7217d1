@@ -1,0 +1,30 @@
+package com.Ecommerce.GenericUtility;
+
+import java.io.IOException;
+
+import org.testng.Reporter;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+
+public class BaseTest implements IAutoConstant {
+
+	public FileUtility f = new FileUtility();
+
+	@BeforeSuite
+	public void toConnectServer() {
+		Reporter.log("server connected sucessfully", true);
+	}
+
+	@BeforeTest
+	public void toConnectDatabase() {
+		Reporter.log("database connected sucessfully", true);
+	}
+
+	@BeforeClass
+	public void setUp() throws IOException {
+
+		f.readProperty(PROPPATH,"browser");
+	}
+
+}

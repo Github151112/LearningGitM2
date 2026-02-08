@@ -1,0 +1,18 @@
+package com.Ecommerce.GenericUtility;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
+import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+
+public class ExcelUtility {
+	
+       public void readExcel(String path,String sheetName) throws EncryptedDocumentException, IOException
+       {
+    	   FileInputStream file = new FileInputStream(path);
+    	   Workbook book = WorkbookFactory.create(file);
+       }
+
+}

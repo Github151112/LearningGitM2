@@ -1,0 +1,22 @@
+package com.Ecommerce.Login;
+
+import org.openqa.selenium.support.FindBy;
+import org.testng.annotations.Test;
+
+import com.Ecommerce.GenericUtility.BaseTest;
+import com.Ecommerce.ObjectRepository.LandingPage;
+import com.Ecommerce.ObjectRepository.LoginPage;
+
+public class LoginTest extends BaseTest {
+
+	@Test
+	public void automateLogin() {
+		LandingPage lp = new LandingPage(driver);
+		lp.getLoginLink().click();
+		LoginPage ll = new LoginPage(driver);
+		ll.automateLoginFunctionality(PROPPATH, EXCELPATH);
+		
+		
+	}
+
+}

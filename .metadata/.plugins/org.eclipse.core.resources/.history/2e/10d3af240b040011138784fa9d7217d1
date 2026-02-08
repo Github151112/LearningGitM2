@@ -1,0 +1,11 @@
+package com.Ecommerce.ObjectRepository;
+
+import org.openqa.selenium.WebDriver;
+
+public class LandingPage extends BaseClass {
+
+	public LandingPage(WebDriver driver) {
+		super(driver);
+	}
+
+}

@@ -1,0 +1,7 @@
+package com.Ecommerce.Login;
+
+import com.Ecommerce.GenericUtility.BaseTest;
+
+public class LoginTest extends BaseTest {
+
+}

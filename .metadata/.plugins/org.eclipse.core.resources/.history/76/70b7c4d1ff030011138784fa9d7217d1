@@ -1,0 +1,17 @@
+package com.Ecommerce.GenericUtility;
+
+
+import org.testng.annotations.BeforeSuite;
+
+public class BaseTest {
+	
+	@BeforeSuite
+	public void toConnectServer()
+	{
+		
+	}
+	
+	
+	
+
+}

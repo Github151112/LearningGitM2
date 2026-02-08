@@ -1,0 +1,14 @@
+package com.Ecommerce.GenericUtility;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+public class FileUtility {
+	
+	public void readProperty(String path) throws FileNotFoundException
+	{
+		FileInputStream file = new FileInputStream(path);
+		
+	}
+
+}

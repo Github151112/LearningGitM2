@@ -1,0 +1,55 @@
+package com.Ecommerce.GenericUtility;
+
+import java.io.IOException;
+
+import org.apache.commons.math3.geometry.spherical.twod.Edge;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Reporter;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+
+public class BaseTest implements IAutoConstant {
+
+	public FileUtility f = new FileUtility();
+	public WebDriverUtility w = new WebDriverUtility();
+	WebDriver driver;
+
+	@BeforeSuite
+	public void toConnectServer() {
+		Reporter.log("server connected sucessfully", true);
+	}
+
+	@BeforeTest
+	public void toConnectDatabase() {
+		Reporter.log("database connected sucessfully", true);
+	}
+
+	@BeforeClass
+	public void setUp() throws IOException {
+		String browser = f.readProperty(PROPPATH, "browser");
+		String url = f.readProperty(PROPPATH, "url");
+		switch (browser) {
+		case "chrome":
+			driver = new ChromeDriver();
+			break;
+		case "edge":
+			driver = new EdgeDriver();
+			break;
+		case "firefox":
+			driver = new FirefoxDriver();
+			break;
+		default:
+			Reporter.log("Invalid Browser", true);
+			break;
+		}
+		w.maximizeWindow(driver);
+		w.implicitWait(driver, TIMESECONDS);
+		w.launchApplication(driver, url);
+
+	}
+
+}

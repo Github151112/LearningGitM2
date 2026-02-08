@@ -1,0 +1,13 @@
+package com.Ecommerce.GenericUtility;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
+public class ExcelUtility {
+	
+       public void readExcel(String path,String sheetName) throws FileNotFoundException
+       {
+    	   FileInputStream file = new FileInputStream(path);
+       }
+
+}

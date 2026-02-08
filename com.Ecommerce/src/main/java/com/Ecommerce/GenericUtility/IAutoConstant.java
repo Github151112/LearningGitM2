@@ -6,5 +6,5 @@ public interface IAutoConstant {
 	String EXCELPATH = "./src/main/resources/TestData/M2DemoData.xlsx";
 	String REGSHEET = "RegisterData";
 	String LOGINSHEET = "LoginData";
-	int TIMESECONDS = 20;
+	int TIMESECONDS = 10;
 }

@@ -1,0 +1,14 @@
+package com.Ecommerce.ObjectRepository;
+
+import org.openqa.selenium.WebDriver;
+
+public class RegisterPage extends BaseClass {
+
+	public RegisterPage(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+}

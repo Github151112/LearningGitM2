@@ -56,6 +56,7 @@ public class BaseTest implements IAutoConstant {
 			Reporter.log("Invalid Browser", true);
 			break;
 		}
+		sdriver = driver;
 		Reporter.log("Browser " + browser + " launched successfully", true);
 		w.maximizeWindow(driver);
 		w.implicitWait(driver, TIMESECONDS);

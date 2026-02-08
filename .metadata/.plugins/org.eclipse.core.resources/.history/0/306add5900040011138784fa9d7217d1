@@ -1,0 +1,30 @@
+package com.Ecommerce.GenericUtility;
+
+import org.testng.Reporter;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+
+public class BaseTest {
+
+	public FileUtility f = new FileUtility();
+	
+	@BeforeSuite
+	public void toConnectServer() {
+		Reporter.log("server connected sucessfully", true);
+	}
+
+	@BeforeTest
+	public void toConnectDatabase() {
+		Reporter.log("database connected sucessfully", true);
+	}
+
+	@BeforeClass
+	public void setUp() {
+		
+		
+		
+
+	}
+
+}
